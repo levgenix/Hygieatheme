@@ -22,7 +22,7 @@
     <form method="post" action="options.php" class="hygiea-general-form">
         <?php settings_fields( 'hygiea-settings-group' ); ?>
         <?php do_settings_sections( 'hygiea_theme' ); ?>
-        <?php submit_button(); ?>
+        <?php submit_button( 'Save Changes', 'primary', 'btnSubmit' ); ?>
     </form>
 </div>
 

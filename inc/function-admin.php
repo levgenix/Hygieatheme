@@ -63,7 +63,12 @@ function hygiea_sidebar_options() {
 
 function hygiea_sidebar_profile() {
 	$picture = esc_attr( get_option( 'profile_picture' ) );
-	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><input type="hidden" id="profile-picture" name="profile_picture" value="' . $picture .'"/>';
+	if ( empty($picture) ) {
+		echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"/><input type="hidden" id="profile-picture" name="profile_picture" value=""/>';
+	} else {
+		echo '<input type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"/><input type="hidden" id="profile-picture" name="profile_picture" value="' . $picture .'"/> <input type="button" class="button button-secondary" value="Remove" id="remove-picture"/>';
+	}
+	
 }
 
 function hygiea_sidebar_name() {

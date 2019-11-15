@@ -23,4 +23,14 @@ jQuery(document).ready(function($) {
         mediaUploader.open();
     });
 
+    $('#remove-picture').on('click', function(e) {
+        e.preventDefault();
+        var answer = confirm("Are you sure you want remove your Profile Picture?");
+        if ( answer == true) {
+            $('#profile-picture').val('');
+            $('.hygiea-general-form').submit();
+        }
+        return;
+    });
+
 });
