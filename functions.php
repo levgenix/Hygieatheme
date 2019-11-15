@@ -8,6 +8,7 @@
  */
 
 require get_template_directory() . '/inc/function-admin.php';
+require get_template_directory() . '/inc/enqueue.php';
 
 add_action( 'wp_enqueue_scripts', 'hygiea_scripts' );
 function hygiea_scripts() {

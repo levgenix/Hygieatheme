@@ -28,8 +28,19 @@ function hygiea_theme_settings_page() {
 
 function hygiea_custom_settings() {
 	register_setting( 'hygiea-settings-group', 'first_name' );
+	register_setting( 'hygiea-settings-group', 'last_name' );
+	register_setting( 'hygiea-settings-group', 'user_description' );
+	register_setting( 'hygiea-settings-group', 'twitter_handler', 'hygiea_sanitize_twitter_handler' );
+	register_setting( 'hygiea-settings-group', 'facebook_handler' );
+	register_setting( 'hygiea-settings-group', 'gplus_handler' );
+	
 	add_settings_section( 'hygiea-sidebar-options', 'Sidebar Options', 'hygiea_sidebar_options', 'hygiea_theme' );
-	add_settings_field( 'sidebar-name', 'First Name', 'hygiea_sidebar_name', 'hygiea_theme', 'hygiea-sidebar-options' );
+	
+	add_settings_field( 'sidebar-name', 'Full Name', 'hygiea_sidebar_name', 'hygiea_theme', 'hygiea-sidebar-options' );
+	add_settings_field( 'sidebar-user-description', 'Description', 'hygiea_sidebar_user_description', 'hygiea_theme', 'hygiea-sidebar-options' );
+	add_settings_field( 'sidebar-twitter', 'Twitter handler', 'hygiea_sidebar_twitter', 'hygiea_theme', 'hygiea-sidebar-options' );
+	add_settings_field( 'sidebar-facebook', 'Facebook handler', 'hygiea_sidebar_facebook', 'hygiea_theme', 'hygiea-sidebar-options' );
+	add_settings_field( 'sidebar-gplus', 'Google+ handler', 'hygiea_sidebar_gplus', 'hygiea_theme', 'hygiea-sidebar-options' );
 }
 
 function hygiea_sidebar_options() {
@@ -38,5 +49,31 @@ function hygiea_sidebar_options() {
 
 function hygiea_sidebar_name() {
 	$firstName = esc_attr( get_option( 'first_name' ) );
-	echo '<input type="text" name="first_name" value="' . $firstName .'" placeholder="Enter First Name"/>';
+	$lastName = esc_attr( get_option( 'last_name' ) );
+	echo '<input type="text" name="first_name" value="' . $firstName .'" placeholder="Enter First Name"/> <input type="text" name="last_name" value="' . $lastName .'" placeholder="Enter Last Name"/>';
+}
+
+function hygiea_sidebar_user_description() {
+	$description = esc_attr( get_option( 'user_description' ) );
+	echo '<input type="text" name="user_description" value="' . $description .'" placeholder="Input User Description"/><p class="description">Write something smart</p>';
+}
+
+function hygiea_sidebar_twitter() {
+	$twitter = esc_attr( get_option( 'twitter_handler' ) );
+	echo '<input type="text" name="twitter_handler" value="' . $twitter .'" placeholder="Enter Twitter handler"/><p class="description">Input your Twitter username without @ character</p>';
+}
+function hygiea_sanitize_twitter_handler( $input ) {
+	$output = sanitize_text_field( $input );
+	$output = str_replace('@', '', $output);
+	return $output;
+}
+
+function hygiea_sidebar_facebook() {
+	$facebook = esc_attr( get_option( 'facebook_handler' ) );
+	echo '<input type="text" name="facebook_handler" value="' . $facebook .'" placeholder="Enter Facebook handler"/>';
+}
+
+function hygiea_sidebar_gplus() {
+	$gplus = esc_attr( get_option( 'gplus_handler' ) );
+	echo '<input type="text" name="gplus_handler" value="' . $gplus .'" placeholder="Enter Google+ handler"/>';
 }
