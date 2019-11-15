@@ -1,0 +1,30 @@
+@import vars
+@import fonts
+@import libs
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+	background-color: silver
+
+// Custom Sass / Remove before use
+
+.container
+	max-width: 700px
+	background-color: blue
+	padding:
+		right: $gutter/2
+		left: $gutter/2
+	margin:
+		left: auto
+		right: auto
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
