@@ -50,11 +50,15 @@ function hygiea_custom_settings() {
 	add_settings_field( 'sidebar-gplus', 'Google+ handler', 'hygiea_sidebar_gplus', 'hygiea_theme', 'hygiea-sidebar-options' );
 
 	// Support Options
-	register_setting( 'hygiea-theme-support', 'post_formats', 'hygiea_post_formats_callback' );
+	register_setting( 'hygiea-theme-support', 'post_formats' );
+	register_setting( 'hygiea-theme-support', 'custom_header' );
+	register_setting( 'hygiea-theme-support', 'custom_background' );
 
 	add_settings_section( 'hygiea-theme-options', 'Theme Options', 'hygiea_theme_options', 'hygiea_theme_options' );
 
 	add_settings_field( 'post-formats', 'Post Formats', 'hygiea_post_formats', 'hygiea_theme_options', 'hygiea-theme-options' );
+	add_settings_field( 'custom-header', 'Custom Header', 'hygiea_custom_header', 'hygiea_theme_options', 'hygiea-theme-options' );
+	add_settings_field( 'custom-background', 'Custom Background', 'hygiea_custom_background', 'hygiea_theme_options', 'hygiea-theme-options' );
 }
 
 function hygiea_sidebar_options() {
@@ -102,10 +106,6 @@ function hygiea_sidebar_gplus() {
 	echo '<input type="text" name="gplus_handler" value="' . $gplus .'" placeholder="Enter Google+ handler"/>';
 }
 
-function hygiea_post_formats_callback( $input ) {
-	return $input;
-}
-
 function hygiea_theme_options() {
 	echo 'Activate and Deactivate specific Theme Support Options';
 }
@@ -119,4 +119,16 @@ function hygiea_post_formats() {
 		$output .= '<label><input type="checkbox"' . $checked . ' id="' . $format . '" name="post_formats[' . $format . ']" value="1" />' . $format . '</label><br />';
 	}
 	echo $output;
+}
+
+function hygiea_custom_header() {
+	$option = get_option( 'custom_header' );
+	$checked = ( $option == 1 ) ? ' checked' : null;
+	echo '<label><input type="checkbox"' . $checked . ' id="custom_header" name="custom_header" value="1" /> Activate the Custom Header</label>';
+}
+
+function hygiea_custom_background() {
+	$option = get_option( 'custom_background' );
+	$checked = ( $option == 1 ) ? ' checked' : null;
+	echo '<label><input type="checkbox"' . $checked . ' id="custom_background" name="custom_background" value="1" /> Activate the Custom Background</label>';
 }

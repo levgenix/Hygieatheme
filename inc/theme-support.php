@@ -17,3 +17,11 @@ if ( !empty($options) ) {
     }
     add_theme_support( 'post-formats', $enabledFormats );
 }
+
+if ( get_option( 'custom_header' ) == 1 ) {
+    add_theme_support( 'custom-header' );
+}
+
+if ( get_option( 'custom_background' ) == 1 ) {
+    add_theme_support( 'custom-background' );
+}
