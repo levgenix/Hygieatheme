@@ -1,8 +1,8 @@
 jQuery(document).ready(function($) {
 
-    var mediaUploader;
+    let mediaUploader;
 
-    $('#upload-button').on('click', function(e) {
+    $('#upload-button').on('click', (e) => {
         e.preventDefault();
         if ( !mediaUploader ) {
             mediaUploader = wp.media.frames.file_frame = wp.media({
@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
                 multiple: false
             });
 
-            mediaUploader.on('select', function() {
+            mediaUploader.on('select', () => {
                 attachment= mediaUploader.state().get('selection').first().toJSON();
                 $('#profile-picture').val(attachment.url);
                 $('#profile-picture-preview').attr('src', attachment.url);
@@ -23,9 +23,9 @@ jQuery(document).ready(function($) {
         mediaUploader.open();
     });
 
-    $('#remove-picture').on('click', function(e) {
+    $('#remove-picture').on('click', (e) => {
         e.preventDefault();
-        var answer = confirm("Are you sure you want remove your Profile Picture?");
+        let answer = confirm("Are you sure you want remove your Profile Picture?");
         if ( answer == true) {
             $('#profile-picture').val('');
             $('.hygiea-general-form').submit();

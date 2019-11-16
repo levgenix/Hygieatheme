@@ -19,7 +19,7 @@ function hygiea_load_admin_scripts( $hook ) {
 
 	wp_enqueue_media();
 
-	wp_register_script( 'hygiea-admin-script', get_template_directory_uri() . '/assets/js/hygiea.admin.js', array('jquery'), '1.0.0', true );
+	wp_register_script( 'hygiea-admin-script', get_template_directory_uri() . '/assets/js/hygiea.admin.js', array('jquery'), '1.0.2', true );
 	wp_enqueue_script( 'hygiea-admin-script' );
 }
 add_action( 'admin_enqueue_scripts', 'hygiea_load_admin_scripts' );
