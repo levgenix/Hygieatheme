@@ -13,7 +13,7 @@ function hygiea_add_admin_page() {
 	add_submenu_page( 'hygiea_theme', 'Hygiea Sidebar Settings', 'Sidebar', 'manage_options', 'hygiea_theme', 'hygiea_theme_create_page' );
 	add_submenu_page( 'hygiea_theme', 'Hygiea Theme Options', 'Theme Options', 'manage_options', 'hygiea_theme_options', 'hygiea_theme_support_page' );
 	add_submenu_page( 'hygiea_theme', 'Hygiea Contact Form', 'Contact Form', 'manage_options', 'hygiea_theme_contact', 'hygiea_contact_form_page' );
-	add_submenu_page( 'hygiea_theme', 'Hygiea CSS Options', 'Custom CSS', 'manage_options', 'hygiea_theme_css', 'hygiea_theme_settings_page' );
+	add_submenu_page( 'hygiea_theme', 'Hygiea CSS Options', 'Custom CSS', 'manage_options', 'hygiea_theme_css', 'hygiea_theme_custom_css_page' );
 
 	add_action( 'admin_init', 'hygiea_custom_settings' );
 }
@@ -30,8 +30,8 @@ function hygiea_theme_support_page() {
 function hygiea_contact_form_page() {
 	require_once get_template_directory() . '/inc/templates/hygiea-contact-form.php';
 }
-function hygiea_theme_settings_page() {
-	echo "<h1>Hygiea Custom CSS</h1>";
+function hygiea_theme_custom_css_page() {
+	require_once get_template_directory() . '/inc/templates/hygiea-custom-css.php';
 }
 
 function hygiea_custom_settings() {
@@ -70,6 +70,13 @@ function hygiea_custom_settings() {
 	add_settings_section( 'hygiea-contact-section', 'Contact Form', 'hygiea_theme_contact', 'hygiea_theme_contact' );
 
 	add_settings_field( 'activate-form', 'Activate Contact Form', 'hygiea_activate_contact', 'hygiea_theme_contact', 'hygiea-contact-section' );
+
+	// Custom CSS Options
+	register_setting( 'hygiea-custom-css-options', 'hygiea_css', 'hygia_sanitize_custom_css' );
+	
+	add_settings_section( 'hygiea-custom-css-section', 'Custom CSS', 'hygiea_custom_css_section_callback', 'hygiea_theme_css' );
+
+	add_settings_field( 'custom-css', 'Insert your Custom CSS', 'hygiea_custom_css_callback', 'hygiea_theme_css', 'hygiea-custom-css-section' );
 }
 
 function hygiea_sidebar_options() {
@@ -125,6 +132,10 @@ function hygiea_theme_contact() {
 	echo 'Activate and Deactivate the Built-in Contact Form';
 }
 
+function hygiea_custom_css_section_callback() {
+	echo 'Customize Hygiea Theme with your own CSS';
+}
+
 function hygiea_post_formats() {
 	$options = get_option( 'post_formats' );
 	$formats = array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat');
@@ -152,4 +163,15 @@ function hygiea_activate_contact() {
 	$option = get_option( 'activate_contact' );
 	$checked = ( $option == 1 ) ? ' checked' : null;
 	echo '<label><input type="checkbox"' . $checked . ' id="activate_contact" name="activate_contact" value="1" /></label>';
+}
+
+function hygiea_custom_css_callback() {
+	$css = get_option( 'hygiea_css' );
+	$css = empty( $css ) ? '/** Hyhiea Theme Custom CSS */' : $css;
+	echo '<div id="customCss">' . $css . '</div><textarea id="hygiea_css" name="hygiea_css">' . $css . '</textarea>';
+}
+
+function hygia_sanitize_custom_css( $input ) {
+	$output = esc_textarea( $input );
+	return $output;
 }
