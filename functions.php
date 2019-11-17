@@ -2,9 +2,7 @@
 /**
  * ITStudio Hygiea Theme functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package hygieatheme
+ * @package hygiea
  */
 
 require get_template_directory() . '/inc/function-admin.php';
@@ -12,13 +10,15 @@ require get_template_directory() . '/inc/enqueue.php';
 require get_template_directory() . '/inc/theme-support.php';
 require get_template_directory() . '/inc/custom-post-type.php';
 
-add_action( 'wp_enqueue_scripts', 'hygiea_scripts' );
-function hygiea_scripts() {
-	wp_enqueue_style( 'normalize-style', get_template_directory_uri() . '/assets/libs/normalize.css', array(), '8.0.1' ); // TODO make min
-	wp_enqueue_style( 'style-name', get_stylesheet_uri() );
-	// TODO
-	//wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/styles.min.css' );
-	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/main.css' );
+// REMOVE EMOJI ICONS
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
 
-	wp_enqueue_script( 'script-name', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), '', true );
-}
+remove_action( 'wp_head', 'wp_resource_hints', 2 );
+
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+
+//add_image_size( 'object-preview', 371, 241, true );
+//add_image_size( 'direction-preview', 170, 170, true );
+//add_image_size( 'sidebar-preview', 350, 200, true );
