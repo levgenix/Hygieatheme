@@ -25,3 +25,6 @@ if ( get_option( 'custom_header' ) == 1 ) {
 if ( get_option( 'custom_background' ) == 1 ) {
     add_theme_support( 'custom-background' );
 }
+
+add_theme_support( 'menus' );
+add_theme_support( 'widgets' );

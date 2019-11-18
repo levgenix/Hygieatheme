@@ -2,19 +2,17 @@
 	@package hygiea
 */
 .hygiea-container {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 280px 1fr;
+	grid-gap: 2em;
+	align-items: start;
 }
 
 .hygiea-sidebar-preview {
-	display: flexbox;
-	width: 280px;
 	background-color: #1f1f1f;
 	padding: 20px;
 	text-align: center;
 	margin-top: 20px;
-	margin-right: 20px;
-	align-self: flex-start;
 }
 h2.hygiea-user-name,
 p.hygiea-user-description {
@@ -28,9 +26,6 @@ h2.hygiea-user-name {
 p.hygiea-user-description {
 	font-size: 13px;
 	margin: 0 0 20px;
-}
-.hygiea-general-form {
-	display: flexbox;
 }
 
 .image-container {

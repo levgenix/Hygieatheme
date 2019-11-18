@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package hygiea
  *   =========================
@@ -22,16 +21,18 @@ if ( get_option( 'activate_contact' ) == 1 ) {
  */
 function hygiea_contact_custom_post_type() {
     $labels = array(
-        'name'              => 'Messages',
-        'singular_name'     => 'Message',
-        'menu_name'         => 'Messages',
-        'name_admin_bar'    => 'Message'
+        'name'              => __( 'Messages' ),
+        'singular_name'     => __( 'Message' ),
+        'menu_name'         => __( 'Messages' ),
+        'name_admin_bar'    => __( 'Message' )
     );
 
     $args = array(
         'labels'            => $labels,
         'show_ui'           => true,
         'show_in_menu'      => true,
+        'show_in_rest'      => true, // like as Gutenberg
+        'supports'          => array('editor'),
         'capability_type'   => 'post',
         'hierarchical'      => false,
         'menu_position'     => 26,

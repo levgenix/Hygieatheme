@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:200,400&display=swap&subset=cyrillic');
+
+@font-face {
+  font-family: 'hygiea-icon';
+  src:  url('../fonts/hygiea-icon.eot?7vq3i7');
+  src:  url('../fonts/hygiea-icon.eot?7vq3i7#iefix') format('embedded-opentype'),
+    url('../fonts/hygiea-icon.ttf?7vq3i7') format('truetype'),
+    url('../fonts/hygiea-icon.woff?7vq3i7') format('woff'),
+    url('../fonts/hygiea-icon.svg?7vq3i7#hygiea-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.hygiea-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hygiea-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hygiea-audio:before {
+  content: "\e900";
+}
+.hygiea-chevron-left:before {
+  content: "\e901";
+}
+.hygiea-chevron-right:before {
+  content: "\e902";
+}
+.hygiea-close:before {
+  content: "\e903";
+}
+.hygiea-comment:before {
+  content: "\e904";
+  color: #fff;
+}
+.hygiea-link:before {
+  content: "\e905";
+  color: #fff;
+}
+.hygiea-loading:before {
+  content: "\e906";
+  color: #ccc;
+}
+.hygiea-logo:before {
+  content: "\e907";
+}
+.hygiea-menu:before {
+  content: "\e908";
+}
+.hygiea-pencil:before {
+  content: "\e909";
+}
+.hygiea-pics:before {
+  content: "\e90a";
+  color: #fff;
+}
+.hygiea-search:before {
+  content: "\e90b";
+  color: #bcbcbc;
+}
+.hygiea-share:before {
+  content: "\e90c";
+  color: #fff;
+}
+.hygiea-tag:before {
+  content: "\e90d";
+  color: #929292;
+}
+.hygiea-video:before {
+  content: "\e90e";
+  color: #fff;
+}

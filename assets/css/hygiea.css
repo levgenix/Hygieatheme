@@ -1,0 +1,70 @@
+/**
+ * @package hygiea
+ */
+
+/* ================= Generic ================= */
+
+
+@import url('./hygiea.fonts.css');
+
+* {
+    font-family: 'Fira Sans Condensed';
+    font-weight: 200;
+}
+
+
+/* ================= Header ================= */
+
+body header {
+    display: grid;
+    grid-template-rows: minmax(450px, max-content); /* TODO: 450px into settings */
+    text-align: center;
+    color: #ffffff;
+}
+.header-content {
+    /* border: 1px red solid; */
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+}
+#mobile-menu-button {
+    /* border: 1px yellow solid; */
+    align-self: start;
+    justify-self: end;
+    padding: 10px;
+    cursor: pointer;
+    /* TODO: into media */
+    display: none;
+    visibility: hidden;
+}
+header .title {
+    /* border: 1px yellow solid; */
+    align-self: center;
+    justify-self: center;
+    padding: 40px 180px;
+    background: rgba(0, 0, 0, .8);
+    border-right: #d85555 solid 3px;
+    /* box-shadow: 0 4px 8px 0 rgba(216, 85, 85, .2), 0 6px 20px 0 rgba(216, 85, 85, .19); */
+    transform: translateY(60px);
+}
+.title .hygiea-logo {
+    font-size: 74px;
+    margin: 0 0 .18em 0;
+}
+.site-title {
+    color: #d85555;
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(216, 85, 85, .4);
+    margin: 0 0 .5em 0;
+    
+}
+.site-description {
+    margin: 0;
+}
+header nav {
+    /* border: 1px yellow solid; */
+    /* width: 890px; */
+    align-self: end;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+}
