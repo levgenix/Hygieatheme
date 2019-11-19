@@ -34,8 +34,8 @@ body header {
     padding: 10px;
     cursor: pointer;
     /* TODO: into media */
-    display: none;
-    visibility: hidden;
+    /* display: none;
+    visibility: hidden; */
 }
 header .title {
     /* border: 1px yellow solid; */
@@ -47,10 +47,6 @@ header .title {
     /* box-shadow: 0 4px 8px 0 rgba(216, 85, 85, .2), 0 6px 20px 0 rgba(216, 85, 85, .19); */
     transform: translateY(60px);
 }
-.title .hygiea-logo {
-    font-size: 74px;
-    margin: 0 0 .18em 0;
-}
 .site-title {
     color: #d85555;
     font-weight: 400;
@@ -61,10 +57,24 @@ header .title {
 .site-description {
     margin: 0;
 }
-header nav {
+#header-nav {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: space-between;
     /* border: 1px yellow solid; */
-    /* width: 890px; */
+    width: 890px;
     align-self: end;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    justify-self: center;
+    align-items: center;
+    padding: 10px 0;
+    color: #000000;
+    background: rgba(256, 256, 256, .6); /* Black background with 0.5 opacity */
+}
+#header-nav > div {
+    justify-self: left;
+    padding: 0 20px;
+}
+#header-nav > nav {
+    justify-self: right;
+    padding: 0 20px;
 }

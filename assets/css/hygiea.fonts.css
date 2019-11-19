@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'hygiea-icon';
-  src:  url('../fonts/hygiea-icon.eot?7vq3i7');
-  src:  url('../fonts/hygiea-icon.eot?7vq3i7#iefix') format('embedded-opentype'),
-    url('../fonts/hygiea-icon.ttf?7vq3i7') format('truetype'),
-    url('../fonts/hygiea-icon.woff?7vq3i7') format('woff'),
-    url('../fonts/hygiea-icon.svg?7vq3i7#hygiea-icon') format('svg');
+  src:  url('../fonts/hygiea-icon.eot?tev32t');
+  src:  url('../fonts/hygiea-icon.eot?tev32t#iefix') format('embedded-opentype'),
+    url('../fonts/hygiea-icon.ttf?tev32t') format('truetype'),
+    url('../fonts/hygiea-icon.woff?tev32t') format('woff'),
+    url('../fonts/hygiea-icon.svg?tev32t#hygiea-icon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -50,9 +50,6 @@
 .hygiea-loading:before {
   content: "\e906";
   color: #ccc;
-}
-.hygiea-logo:before {
-  content: "\e907";
 }
 .hygiea-menu:before {
   content: "\e908";
